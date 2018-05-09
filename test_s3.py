@@ -19,13 +19,15 @@ s3=boto3.resource("s3")
 
 bucket=s3.Bucket("photofortweet")
 # obj=bucket.Object("forbot/001.jpg")
-obj=s3.Object("photofortweet","forbot/001.jpg")
-print(obj.content_type)
+obj=bucket.Object("forbot/001.jpg")
+# print(obj.content_type)
 print(type(obj))
 
-response=obj.get()
-print(type(response))
-# image=Image.open(body)
+# response=obj.get()
+# print(type(response))
+
+image=obj
+image=Image.open(obj)
 # image.show()
 # obj_jpg=Image.open(bucket.Object("forbot/001.jpg"),"r")
 

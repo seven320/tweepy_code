@@ -12,6 +12,7 @@ auth=account.Initialize()
 api = tweepy.API(auth)
 twitter_id=account.id()
 
+
 othertimelines=api.user_timeline("togetter_jp")
 for tweet in othertimelines:
     print(tweet.text)
