@@ -10,33 +10,27 @@ from PIL import Image
 #     aws_secret_access_key="mMftKv+wuFC3WhrCr6dvGjwLGBEnrb5vAtaOrOQP"
 #     # aws_session_token=SESSION_TOKEN,
 # )
-s3=boto3.resource("s3")
-# boto3.DEFAULT_SESSION
+def AWS_handler(event, context):
+    s3=boto3.resource("s3")
+    # boto3.DEFAULT_SESSION
 
-# for bucket in s3.buckets.all():
-#     print(bucket)
+    bucket=s3.Bucket("photofortweet")
+    # obj=bucket.Object("forbot/001.jpg")
+    bucket.download_file("forbot/002.jpg","/Users/001jpg")
+    img = Image.open("/Users/001jpg")
 
+    # print(obj.content_type)
+    # print(type(obj))
+    #
+    # # response=obj.get()
+    # # print(type(response))
+    #
+    # image=obj
+    # image=Image.open(obj)
+    # obj_jpg=Image.open(bucket.Object("forbot/001.jpg"),"r")
 
-bucket=s3.Bucket("photofortweet")
-# obj=bucket.Object("forbot/001.jpg")
-obj=bucket.Object("forbot/001.jpg")
-# print(obj.content_type)
-print(type(obj))
+    # for key in bucket.objects.all():
+    #     print(key)
 
-# response=obj.get()
-# print(type(response))
-
-image=obj
-image=Image.open(obj)
-# image.show()
-# obj_jpg=Image.open(bucket.Object("forbot/001.jpg"),"r")
-
-
-# for key in bucket.objects.all():
-#     print(key)
-
-
-
-
-# S3上のファイルをダウンロードする
-# bucket.download_file(Key='forbot/041.jpg', Filename='photofortweet')
+    # S3上のファイルをダウンロードする
+    # bucket.download_file(Key='forbot/041.jpg', Filename='photofortweet')
